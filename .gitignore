@@ -1,0 +1,5 @@
+__pycache__/
+yolov3/
+uploads/
+data/
+output_video.mp4
