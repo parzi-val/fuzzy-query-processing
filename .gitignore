@@ -3,3 +3,5 @@ yolov3/
 uploads/
 data/
 output_video.mp4
+tracking_output.mp4
+.ipynb_checkpoints/

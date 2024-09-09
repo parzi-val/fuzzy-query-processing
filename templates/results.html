@@ -27,7 +27,7 @@
         form {
             margin-bottom: 20px;
         }
-        select, input[type="text"], button {
+        input[type="text"], button {
             padding: 10px;
             margin: 5px 0;
             border: 1px solid #ddd;
@@ -41,12 +41,6 @@
         }
         button:hover {
             background-color: #0056b3;
-        }
-        .range-info {
-            margin-bottom: 20px;
-            padding: 10px;
-            background-color: #e9ecef;
-            border-radius: 4px;
         }
         table {
             width: 100%;
@@ -70,33 +64,9 @@
     <div class="container">
         <h1>Results</h1>
         <form action="/results" method="get">
-            <input type="text" name="tracker_id" placeholder="Tracker ID">
-            <select name="speed_category">
-                <option value="">Select Speed</option>
-                <option value="slow">Slow</option>
-                <option value="medium">Medium</option>
-                <option value="fast">Fast</option>
-            </select>
-            <select name="distance_category">
-                <option value="">Select Distance</option>
-                <option value="short">Short</option>
-                <option value="medium">Medium</option>
-                <option value="long">Long</option>
-            </select>
+            <input type="text" name="query" placeholder="Enter your query">
             <button type="submit">Search</button>
         </form>
-        
-        {% if speed_range %}
-            <div class="range-info">
-                <p>Speed Range: {{ speed_range[0] }} - {{ speed_range[1] }}</p>
-            </div>
-        {% endif %}
-        
-        {% if distance_range %}
-            <div class="range-info">
-                <p>Distance Range: {{ distance_range[0] }} - {{ distance_range[1] }}</p>
-            </div>
-        {% endif %}
 
         <table>
             <thead>
@@ -104,6 +74,7 @@
                     <th>Tracker ID</th>
                     <th>Distance</th>
                     <th>Speed</th>
+                    <th>QCI</th>
                 </tr>
             </thead>
             <tbody>
@@ -112,6 +83,7 @@
                         <td>{{ item.tracker_id }}</td>
                         <td>{{ item.distance }}</td>
                         <td>{{ item.speed }}</td>
+                        <td>{{ item.qci }}</td>
                     </tr>
                 {% endfor %}
             </tbody>
